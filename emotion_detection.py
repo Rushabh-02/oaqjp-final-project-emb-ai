@@ -4,6 +4,9 @@ import requests
 
 def emotion_detector(text_to_analyze):
     """Analyze text and return emotion scores and dominant emotion."""
+    if not isinstance(text_to_analyze, str) or not text_to_analyze.strip():
+        return None
+
     url = (
         "https://sn-watson-emotion.labs.skills.network/"
         "v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
